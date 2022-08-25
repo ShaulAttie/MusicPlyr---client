@@ -1,0 +1,49 @@
+.song_list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    /* border: 2px solid black; */
+    /* width: 40%; */
+    align-content: flex-start;
+    /* overflow-y: scroll; */
+    width: 100%;
+    /* height: 100%; */
+
+}
+
+.song{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+}
+.song h5{
+  cursor: pointer;
+
+}
+
+.song button{
+    height: 2rem;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

@@ -1,0 +1,17 @@
+.searchbar_input {
+    border: 1px solid black;
+    height: 2rem;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.searchbar_input input{
+    border: none;
+width: 80%;
+
+}
+
+.searchbar_input button {
+    cursor: pointer;
+    display: flex;
+}
