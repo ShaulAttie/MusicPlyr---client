@@ -4,6 +4,7 @@
     width: 98vw;
     position: absolute;
     z-index: -1;
+    display: flex;
 
 
     &::before {
@@ -157,9 +158,75 @@
     }
 }
 
-$breakpoint-tablet: 650px;
+@media (min-width: 768px) {
+    .info__light {
+        height: 6.5rem;
+        bottom: -1vh;
+        width: 100%;
+    }
 
-@media (min-width: $breakpoint-tablet) {
+    .info__light span:nth-child(1) {
+        filter: hue-rotate(0deg);
+        bottom: 9.5vh;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, transparent, #3a86ff);
+        animation: animate1 1s linear infinite;
+    }
+
+    .info__light span:nth-child(2) {
+        filter: hue-rotate(60deg);
+        top: -100%;
+        right: -0.5vw;
+        width: 7px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #3a86ff);
+        animation: animate2 1s linear infinite;
+        animation-delay: 0.25s;
+    }
+
+}
+
+
+@media (min-width: 1280px) {
+    .info__light {
+        height: 8rem;
+        bottom: -3vh;
+    }
+}
+
+@media (min-width: 1366px) {
+    .info__light {
+        height: 8rem;
+        bottom: -3vh;
+    }
+}
+
+@media (min-width: 1536px) {
+    .info__light {
+        height: 8rem;
+        bottom: -4vh;
+        margin-right: 0.3vw;
+    }
+}
+
+@media (min-width: 1920px) {
+    .info__light {
+        height: 10rem;
+        width: 98%;
+        right: 1vw;
+        bottom: -6vh;
+
+        span:nth-child(2) {
+            right: 0.5vw;
+            margin-right: 0.3vw;
+        }
+    }
+}
+
+
+@media (max-width: 650px) {
     .info__light {
         filter: hue-rotate(0deg);
         position: absolute;
