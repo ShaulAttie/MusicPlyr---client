@@ -16,7 +16,7 @@ const Searchbar = () => {
     // console.log(search);
     axios
       .get(`https://musicplyr13.herokuapp.com/api/search/${search}`)
-      .then((res) => console.log(res.data))
+      // .then((res) => console.log(res.data))
       .then((res) => setSearchSongs(res.data))
       .catch((e) => console.log(e));
   }
