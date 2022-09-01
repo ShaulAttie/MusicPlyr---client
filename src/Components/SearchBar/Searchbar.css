@@ -1,18 +1,19 @@
 .searchbar_input {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 2rem;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
 }
 
-.searchbar_input input{
+.searchbar_input input {
     border: none;
-width: 80%;
+    width: 80%;
+    border-radius: 10px;
 
 }
 
-.searchbar_input button{
+.searchbar_input button {
     border: none;
     background-color: transparent;
     display: flex;
@@ -26,5 +27,5 @@ width: 80%;
     height: 1.5rem;
     width: 1.5rem;
     color: white;
-    
+
 }

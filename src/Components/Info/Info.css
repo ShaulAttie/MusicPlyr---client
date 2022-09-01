@@ -13,4 +13,8 @@
     display: flex;
     justify-content: center;
 }
+
+.info h5{
+    width: 95%;
+}
  

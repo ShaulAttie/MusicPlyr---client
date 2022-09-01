@@ -156,3 +156,114 @@
         }
     }
 }
+
+$breakpoint-tablet: 650px;
+
+@media (min-width: $breakpoint-tablet) {
+    .info__light {
+        filter: hue-rotate(0deg);
+        position: absolute;
+        height: 6rem;
+        width: 100%;
+        right: 0vw;
+        bottom: 0vh;
+        overflow: hidden;
+        transition: all 0.1s linear;
+
+        &:hover {
+            border: 1px solid transparent;
+
+            span {
+                position: absolute;
+
+                &:nth-child(1) {
+                    filter: hue-rotate(0deg);
+                    bottom: 13vh;
+                    left: 0;
+                    width: 100%;
+                    height: 5px;
+                    background: linear-gradient(90deg, transparent, #3a86ff);
+                    animation: animate1 1s linear infinite;
+                }
+
+                @keyframes animate1 {
+                    0% {
+                        left: -57vw;
+                    }
+
+                    50%,
+                    100% {
+                        left: 57vw;
+                    }
+                }
+
+                &:nth-child(2) {
+                    filter: hue-rotate(60deg);
+                    top: -100%;
+                    right: -0.5vw;
+                    width: 7px;
+                    height: 100%;
+                    background: linear-gradient(180deg, transparent, #3a86ff);
+                    animation: animate2 1s linear infinite;
+                    animation-delay: 0.25s;
+                }
+
+                @keyframes animate2 {
+                    0% {
+                        top: -12vh;
+                    }
+
+                    50%,
+                    100% {
+                        top: 12vh;
+                    }
+                }
+
+                &:nth-child(3) {
+                    filter: hue-rotate(120deg);
+                    bottom: -0.5vh;
+                    right: -57vw;
+                    width: 100%;
+                    height: 5px;
+
+                    background: linear-gradient(270deg, transparent, #3a86ff);
+                    animation: animate3 1s linear infinite;
+                    animation-delay: 0.5s;
+                }
+
+                @keyframes animate3 {
+                    0% {
+                        right: -57vw;
+                    }
+
+                    50%,
+                    100% {
+                        right: 57vw;
+                    }
+                }
+
+                &:nth-child(4) {
+                    filter: hue-rotate(300deg);
+                    bottom: -16vh;
+                    left: -0.2vw;
+                    width: 5px;
+                    height: 100%;
+                    background: linear-gradient(360deg, transparent, #3a86ff);
+                    animation: animate4 1s linear infinite;
+                    animation-delay: 0.75s;
+                }
+
+                @keyframes animate4 {
+                    0% {
+                        bottom: -12.4vh;
+                    }
+
+                    50%,
+                    100% {
+                        bottom: 12.4vh;
+                    }
+                }
+            }
+        }
+    }
+}

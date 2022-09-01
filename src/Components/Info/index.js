@@ -14,8 +14,8 @@ const Info = ({ songInfo }) => {
       </div>
       <h2>Music Info</h2>
       {songInfo && <>
-        <h5>&nbsp;&nbsp;{songInfo?.title}</h5>
-        <h5>&nbsp;&nbsp;<strong>Duration:</strong>{songInfo?.duration_formatted}</h5>
+        <h5>{songInfo?.title}</h5>
+        <h5><strong>Duration:</strong>{songInfo?.duration_formatted}</h5>
       </>
       }
     </div>
