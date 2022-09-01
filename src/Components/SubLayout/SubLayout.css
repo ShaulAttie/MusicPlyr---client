@@ -1,21 +1,200 @@
-.sublayout_container{
+.search_play {
+    height: 100%;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid black;
+    align-items: center;
+    overflow: hidden;
+}
+
+.title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 95%;
+    height: 3.7rem;
+    font-size: medium;
+}
+
+.title :first-child {
+    color: white;
+    height: 1.5rem;
+
+}
+
+.title svg {
+    width: 1.5rem;
+}
+
+.title h1 {
+    color: white;
+}
+
+.title span {
+    /* display: flex; */
+    /* width: 95%; */
+    /* justify-content: flex-end; */
+    font-size: small;
+    color: blue
+}
+
+.search_play span {
+    display: flex;
+    justify-content: flex-end;
+    font-size: small;
+    color: blue;
+    cursor: pointer;
+}
+
+
+.sublayout_container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-wrap: nowrap;
 }
 
-.sublayout_left_container{
+.sublayout_left_container {
     width: 30%;
     height: 100%;
     border: 2px solid black;
 }
 
-.sublayout_right_container{
+.sublayout_right_container {
     width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
     border: 2px solid black;
 
+}
+
+.createPlaylist {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    text-align: center;
+}
+
+.createPlaylist * {
+    width: 100%;
+}
+
+
+.drop_play {
+    /* height: 0px; */
+    visibility: hidden;
+    width: 0px;
+    position: absolute;
+    top: 20%;
+    left: 2%;
+    background-color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+    transition: all 1s ease-in-out;
+    opacity: 1;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.drop_play * {
+    transition-delay: 0.5s;
+    visibility: hidden;
+}
+
+.drop_play.change {
+    visibility: visible;
+    min-height: 60px !important;
+    width: 25% !important;
+    opacity: 0.9;
+}
+
+.drop_play.change * {
+    transition-delay: 0.5s;
+    visibility: visible !important;
+}
+
+
+.playlist_drop {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.playlist_drop_line {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 95%;
+    justify-content: space-between;
+
+}
+
+.playlist_drop_line svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: 0.5s all ease-in;
+}
+
+.playlist_drop_line svg:hover {
+    color: red;
+}
+
+@media(max-width: 768px) {
+    .header_logo h1 {
+        font-size: x-large;
+    }
+
+    .header__logOut {
+        font-size: small;
+    }
+
+    .header__logOut svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .play_info {
+        width: 95%;
+        align-self: center;
+    }
+
+    .info {
+        width: 95% !important;
+        border: 2px solid black;
+    }
+
+    .button2 {
+        width: 60% !important;
+    }
+
+    .search_play {
+        width: 95%;
+    }
+
+    .drop_play {
+        top: 63%;
+        left: 6%;
+    }
+
+}
+
+@media (max-width:650px) {
+    .drop_play {
+        top: 59%;
+        left: 6%;
+    }
+
+    .drop_play.change {
+        min-width: 40%;
+    }
 }

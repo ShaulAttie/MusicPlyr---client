@@ -1,5 +1,16 @@
-.info{
-    /* border: 2px solid black; */
-    min-height: 20vh;
+.info {
+    min-height: 6rem;
     width: 100%;
+    color: white;
+    position: relative;
 }
+
+.info:hover {
+    border: none;
+}
+
+.info h2 {
+    display: flex;
+    justify-content: center;
+}
+ 

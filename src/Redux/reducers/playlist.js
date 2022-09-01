@@ -1,4 +1,4 @@
-import { CREATE, FETCH_PLAYLISTS, FETCH_PLAYLIST, DELETE, UPDATE, START_LOADING, END_LOADING } from '../constants/constantsTypes'
+import { CREATE, FETCH_PLAYLISTS, FETCH_PLAYLIST, DELETE, UPDATE } from '../constants/constantsTypes'
 
 const reducer = (state = { playlist: [] }, action) => {
     switch (action.type) {
@@ -16,12 +16,6 @@ const reducer = (state = { playlist: [] }, action) => {
 
         case DELETE:
             return { ...state, playlists: state.playlist.filter(playlist => playlist.id !== action.payload) }
-
-        case START_LOADING:
-            return { ...state, isLoading: true }
-
-        case END_LOADING:
-            return { ...state, isLoading: false }
 
         default:
             return state

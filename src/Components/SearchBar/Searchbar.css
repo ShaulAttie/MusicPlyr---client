@@ -3,6 +3,7 @@
     height: 2rem;
     display: flex;
     flex-wrap: nowrap;
+    justify-content: space-around;
 }
 
 .searchbar_input input{
@@ -11,7 +12,19 @@ width: 80%;
 
 }
 
-.searchbar_input button {
-    cursor: pointer;
+.searchbar_input button{
+    border: none;
+    background-color: transparent;
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar_input button svg {
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+    color: white;
+    
 }

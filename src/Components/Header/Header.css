@@ -1,9 +1,10 @@
 .header{
     display: flex;
     flex-wrap: nowrap;
-    border: 2px solid black;
+    border: 2px dashed  rgb(41, 41, 41);
     height: 12vh;
     width: 98vw;
+    color: white;
 }
 
 .header_content{
@@ -35,3 +36,22 @@
     height: 1.5rem;
 }
 
+.log_button{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.header__logOut{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_logo{
+    cursor: pointer;
+}
+
+.header__logOut svg{
+    cursor: pointer;
+}

@@ -14,7 +14,6 @@ export const createPlaylist = (playlistName) => API.post(`/api/playlists`, playl
 export const fetchPlaylistsByCreator = (id) => API.get(`/api/playlists/creator/${id}`)
 export const fetchPlaylist = (_id) => API.get(`/api/playlists/${_id}`)
 export const updatePlaylist = (_id, playlist) => API.patch(`/api/playlists/${_id}`, playlist)
-
 export const deletePlaylist = (id) => API.delete(`/api/playlists/${id}`)
 
 export const signIn = (formData) => API.post(`/api/user/signin`, formData)

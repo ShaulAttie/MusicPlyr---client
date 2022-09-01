@@ -1,10 +1,8 @@
 import React from 'react';
 import { TextField, Grid, InputAdornment, IconButton } from '@mui/material';
 
-
 import {AiOutlineEye} from 'react-icons/ai'
 import {AiOutlineEyeInvisible} from 'react-icons/ai'
-
 
 const Input = ({ name, handleChange, label, half, autoFocus, type, handleShowPassword }) => (
   <Grid item xs={12} sm={half ? 6 : 12}>
