@@ -20,6 +20,7 @@ const SubLayout = () => {
     const [playSongNow, setPlaySongNow] = useState([])
     const [isDrop, setIsDrop] = useState(false)
     const [info, setInfo] = useState()
+    const  [choosenPlaylist, setChoosenPlaylist]=useState("add to...")
 
     const { playlist, playlists } = useSelector((state) => state.playlist)
 
@@ -42,6 +43,7 @@ const SubLayout = () => {
 
     const choosePlaylist = (e) => {
         e.preventDefault()
+        setChoosenPlaylist(e.target.value)
         const result = playlists.filter(elem => elem.name === e.target.value)
 
         console.log(result);
@@ -101,7 +103,7 @@ const SubLayout = () => {
                                 <div className="songlist_myPlays">
                                     {/* <form> */}
                                     <label>Add To Playlist:</label>
-                                    <select name="playlists" id="plays" onChange={choosePlaylist} key={uuidv4()}>
+                                    <select name="playlists" id="plays" value={choosePlaylist} onChange={choosePlaylist} key={uuidv4()}>
                                         <option >add to ...</option>
                                         {playlists?.map((elem) =>
                                             <option value={elem.name} key={uuidv4()}>{elem.name}</option>)}
