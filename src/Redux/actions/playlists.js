@@ -27,7 +27,6 @@ export const getPlaylistsByCreator = (id) => async (dispatch) => {
 }
 
 export const getPlaylist = (_id) => async (dispatch) => {
-    // console.log(_id);
     try {
 
         const { data } = await api.fetchPlaylist(_id)

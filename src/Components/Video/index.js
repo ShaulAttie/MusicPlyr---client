@@ -5,19 +5,20 @@ import { useSelector } from 'react-redux';
 
 import ReactPlayer from 'react-player'
 
-import {
-  BsPlayCircle,
-  BsPauseCircle,
-  BsVolumeMute,
-  BsVolumeDown,
-  BsVolumeUp,
-  BsSkipForwardCircle,
-  BsShuffle,
-  BsFullscreen
-} from "react-icons/bs"
-import { green } from '@mui/material/colors';
-import Popup from '../Popup';
-import { setSelectionRange } from '@testing-library/user-event/dist/utils';
+// import {
+//   BsPlayCircle,
+//   BsPauseCircle,
+//   BsVolumeMute,
+//   BsVolumeDown,
+//   BsVolumeUp,
+//   BsSkipForwardCircle,
+//   BsShuffle,
+//   BsFullscreen
+// } from "react-icons/bs"
+// import { green } from '@mui/material/colors';
+// import Popup from '../Popup';
+// import { setSelectionRange } from '@testing-library/user-event/dist/utils';
+
 
 
 const Video = ({ playSong, showInfo }) => {
@@ -26,9 +27,8 @@ const Video = ({ playSong, showInfo }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [isShuffle, setIsShuffle] = useState(false)
-  const [isTrigger, setIsTrigger] = useState(false)
-  const [sec, setSec] = useState(false)
-
+  // const [isTrigger, setIsTrigger] = useState(false)
+  // const [sec, setSec] = useState(false)
 
   const [rangeValue, setRangeValue] = useState(1)
 
@@ -42,7 +42,6 @@ const Video = ({ playSong, showInfo }) => {
   var interval
   var secs
 
-  // console.log("NowIsPlaying", nowIsPlaying);
 
   useEffect(() => {
     setNowIsPlaying(playSong)
@@ -67,6 +66,8 @@ const Video = ({ playSong, showInfo }) => {
 
     setIsPlaying(true)
 
+    if(playlist === []) return
+
     if (!isShuffle) {
       (nowIsPlaying[1] < playlist.songs.length - 1) ? index = nowIsPlaying[1] + 1 : index = 0
       // setNowIsPlaying([playlist.songs[index], index]);
@@ -87,42 +88,42 @@ const Video = ({ playSong, showInfo }) => {
     // clearInterval(secs);
   }
 
-  function musicProgress(data) {
+  // function musicProgress(data) {
 
-    const element = myBarRef.current;
-    const timeElem = secRef.current
+  //   const element = myBarRef.current;
+  //   const timeElem = secRef.current
 
-    interval = setInterval(frame, nowIsPlaying[0]?.duration / 100);
-    secs = setInterval(seconds, 1000);
+  //   interval = setInterval(frame, nowIsPlaying[0]?.duration / 100);
+  //   secs = setInterval(seconds, 1000);
 
-    function frame() {
-      if (width === 100) {
-        clearInterval(interval);
-      } else {
-        width++
-        element.style.width = width + '%';
-      }
-    }
-    function seconds() {
-      if (second === nowIsPlaying[0]?.duration / 1000) {
-        clearInterval(secs);
-      } else {
-        second++
-        const min = (second / 60).toString().split(".")[0]
-        const sec = second - (min * 60)
-        if (min > 59) {
-          const h = (min / 60).toString().split(".")[0]
-          timeElem.innerText = `${h}:${min}:${sec}`
-        }
-        if (sec < 60) {
-          timeElem.innerText = `${min}:${sec}`
-        }
-        if (sec < 10) {
-          timeElem.innerText = `${min}:0${sec}`
-        }
-      }
-    }
-  }
+  //   function frame() {
+  //     if (width === 100) {
+  //       clearInterval(interval);
+  //     } else {
+  //       width++
+  //       element.style.width = width + '%';
+  //     }
+  //   }
+  //   function seconds() {
+  //     if (second === nowIsPlaying[0]?.duration / 1000) {
+  //       clearInterval(secs);
+  //     } else {
+  //       second++
+  //       const min = (second / 60).toString().split(".")[0]
+  //       const sec = second - (min * 60)
+  //       if (min > 59) {
+  //         const h = (min / 60).toString().split(".")[0]
+  //         timeElem.innerText = `${h}:${min}:${sec}`
+  //       }
+  //       if (sec < 60) {
+  //         timeElem.innerText = `${min}:${sec}`
+  //       }
+  //       if (sec < 10) {
+  //         timeElem.innerText = `${min}:0${sec}`
+  //       }
+  //     }
+  //   }
+  // }
 
   const handleWatchProgress = (state) => {
     console.log(state);
@@ -179,7 +180,7 @@ const Video = ({ playSong, showInfo }) => {
           <span onClick={() => setIsShuffle(!isShuffle)} style={isShuffle ? { color: "green" } : { color: "red" }}><BsShuffle /></span> */}
       {/* <span onClick={() => setIsTrigger(!isTrigger)}><BsFullscreen /></span> */}
       {/* </div> */}
-      {isTrigger && <Popup playSong={nowIsPlaying} />}
+      {/* {isTrigger && <Popup playSong={nowIsPlaying} />} */}
       {/* </div> */}
 
     </>

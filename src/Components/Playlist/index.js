@@ -4,22 +4,22 @@ import './Playlist.css'
 import React, { useEffect } from 'react'
 
 import { useDispatch, useSelector } from "react-redux"
-import { getPlaylistsByCreator, updatePlaylist, deletePlaylist } from '../../Redux/actions/playlists'
-import { AiOutlineMinusCircle,AiOutlineQuestionCircle } from "react-icons/ai"
+import { getPlaylistsByCreator, updatePlaylist, getPlaylist } from '../../Redux/actions/playlists'
+import { AiOutlineMinusCircle, AiOutlineQuestionCircle } from "react-icons/ai"
 
-const Playlist = ({ songOnclick, showInfo }) => {
+const Playlist = ({ songOnclick, showInfo, choosenPlaylist }) => {
   const dispatch = useDispatch()
 
   const user = JSON.parse(localStorage.getItem('profile'))
 
-  var { playlist } = useSelector((state) => state.playlist)
-  // console.log("PLAYLIST", playlist);
+  var { playlist, playlists } = useSelector((state) => state.playlist)
+ 
+  useEffect(() => {
 
-  // useEffect(() => {
+    const result = playlists.filter(elem => elem.name === choosenPlaylist)
 
-  //   dispatch(getPlaylistsByCreator(user?.result._id))
-
-  // }, [])
+    result && dispatch(getPlaylist(result[0]?._id))
+  }, [])
 
 
   const removeButton = (elem) => {

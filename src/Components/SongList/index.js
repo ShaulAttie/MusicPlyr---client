@@ -17,12 +17,10 @@ const Songlist = ({ songOnclick, showInfo }) => {
 
   const { playlists, playlist } = useSelector((state) => state.playlist)
 
-  // console.log(playlist);
 
   const addToPlaylist = (elem) => {
     const { title, url, id, duration, duration_formatted } = elem
 
-    console.log(playlist);
 
     !playlist.songs.find(song => song.id === id) && playlist.songs.push({ title, url, id, duration, duration_formatted })
 

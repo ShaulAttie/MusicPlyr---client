@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import "./SubLayout.css"
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import Playlist from '../Playlist'
 import Songlist from '../SongList'
@@ -13,19 +13,25 @@ import { AiOutlineMinusCircle } from "react-icons/ai"
 import { useDispatch, useSelector } from "react-redux"
 import { createPlaylist, getPlaylistsByCreator, getPlaylist, deletePlaylist } from '../../Redux/actions/playlists'
 
+import { APISongContext } from "../../Helpers/APISongContext";
 
 
 const SubLayout = () => {
+    const { searchSongs } = useContext(APISongContext);
     const [isSonglist, setIsSonglist] = useState(true)
     const [playSongNow, setPlaySongNow] = useState([])
     const [isDrop, setIsDrop] = useState(false)
     const [info, setInfo] = useState()
     const [choosenPlaylist, setChoosenPlaylist] = useState("add to...")
-
+    
     const { playlist, playlists } = useSelector((state) => state.playlist)
+ 
+    const [openPlay, setOpenPlay] = useState(playlist)
+    useEffect(() => {
+        setPlaySongNow([searchSongs[0],0])
+    }, [searchSongs])
 
     useEffect(() => {
-        // console.log("sublayout useEffect");
         dispatch(getPlaylistsByCreator(user?.result._id))
     }, [])
 
@@ -35,10 +41,6 @@ const SubLayout = () => {
     const [createNewPlaylist, setCreateNewPlaylist] = useState()
     const dispatch = useDispatch()
 
-    // console.log(playlists);
-    // console.log(playlist);
-    // console.log(playId);
-
     //////////////////////////////////////////////////
 
     const choosePlaylist = (e) => {
@@ -46,7 +48,6 @@ const SubLayout = () => {
         setChoosenPlaylist(e.target.value)
         const result = playlists.filter(elem => elem.name === e.target.value)
 
-        console.log(result);
         result && dispatch(getPlaylist(result[0]?._id))
     }
 
@@ -59,14 +60,12 @@ const SubLayout = () => {
     }
 
     const delPlaylist = (_id) => {
-        // console.log(_id);
         dispatch(deletePlaylist(_id))
         setIsDrop(!isDrop)
     }
 
     const dropFn = () => {
         setIsDrop(!isDrop)
-        // console.log(user?.result._id);
         dispatch(getPlaylistsByCreator(user?.result._id))
     }
 
@@ -85,13 +84,15 @@ const SubLayout = () => {
     }
 
     /////////////////////////////////////////////////////////
-    // useEffect(() => {
-    //     playOnclickButton()
-    // }, [playSongNow])
+    useEffect(() => {
+        setOpenPlay(playlist)
+    }, [playlist])
 
     function showInfo(elem) {
         setInfo(elem)
     }
+
+
     return (
 
         <div className='main'>
@@ -118,7 +119,7 @@ const SubLayout = () => {
                             <div className="title"><IoIosArrowDropdown onClick={dropFn} /><h1>{playlist.name}</h1><span onClick={() => setIsSonglist(!isSonglist)}>to My Search</span></div>
                             <hr style={{ width: "90%" }} />
 
-                            <Playlist songOnclick={songOnclick} showInfo={showInfo} />
+                            <Playlist songOnclick={songOnclick} showInfo={showInfo} choosenPlaylist={choosenPlaylist}/>
 
 
                             {/* /////////// DropList */}

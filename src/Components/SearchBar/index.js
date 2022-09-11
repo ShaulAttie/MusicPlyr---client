@@ -1,19 +1,23 @@
-import React, { useRef, useState, useContext } from 'react'
+import React, { useRef, useState, useContext, useEffect } from 'react'
 import './Searchbar.css'
 import axios from 'axios';
 
 import { APISongContext } from "../../Helpers/APISongContext";
 import {GiMagnifyingGlass} from "react-icons/gi"
 
+const bandsToSearch = ["jamiroquay", "cafe tacuba", "charlie garcia", "manu chao", "mano negra"]
 
 const Searchbar = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(bandsToSearch[Math.floor(Math.random()*bandsToSearch.length)]);
   const { setSearchSongs } = useContext(APISongContext);
 
   const inputRef = useRef()
 
+  useEffect(() => {
+    searchOnclickHandler()
+  },[])
+
   function searchOnclickHandler() {
-    // console.log(search);
     axios
     .get(`https://musicplyr13.herokuapp.com/api/search/${search}`)
       // .get(`http://localhost:3001/api/search/${search}`)
