@@ -19,8 +19,8 @@ const Searchbar = () => {
 
   function searchOnclickHandler() {
     axios
-    .get(`https://musicplyr.onrender.com/api/search/${search}`)
-    // .get(`https://musicplyr13.herokuapp.com/api/search/${search}`)
+    // .get(`https://musicplyr.onrender.com/api/search/${search}`)
+    .get(`https://musicplyr13.herokuapp.com/api/search/${search}`)
       // .get(`http://localhost:3001/api/search/${search}`)
       // .then((res) => console.log(res.data))
       .then((res) => setSearchSongs(res.data))
