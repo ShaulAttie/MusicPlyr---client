@@ -22,7 +22,7 @@ const Songlist = ({ songOnclick, showInfo }) => {
     const { title, url, id, duration, duration_formatted } = elem
 
 
-    !playlist.songs.find(song => song.id === id) && playlist.songs.push({ title, url, id, duration, duration_formatted })
+    !playlist.songs?.find(song => song.id === id) && playlist.songs.push({ title, url, id, duration, duration_formatted })
 
     dispatch(updatePlaylist(playlist._id, playlist))
 
